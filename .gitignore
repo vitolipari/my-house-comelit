@@ -1,0 +1,94 @@
+###############################################################################
+# Python bytecode and caches
+###############################################################################
+
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.cache/
+.dmypy.json
+
+###############################################################################
+# Virtual environments
+###############################################################################
+
+.venv/
+venv/
+env/
+ENV/
+
+###############################################################################
+# Packaging and build output
+###############################################################################
+
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+###############################################################################
+# Tests and coverage
+###############################################################################
+
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+###############################################################################
+# Editors and operating systems
+###############################################################################
+
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+###############################################################################
+# Environment variables and secrets
+###############################################################################
+
+.env
+.env.*
+!.env.example
+
+# The real device configuration contains local addresses and credentials.
+config/comelit-config.json
+config/*.local.json
+config/*.secret.json
+config/secrets/
+
+# Keep only the sanitized configuration template under version control.
+!config/comelit-config.example.json
+
+###############################################################################
+# Logs, captures and process files
+###############################################################################
+
+*.log
+logs/
+log/
+captures/
+artifacts/
+tmp/
+*.pid
+*.pid.lock
+*.sock
+*.pcap
+*.pcapng
+
+###############################################################################
+# Generated local files
+###############################################################################
+
+*.zip
+/tree.txt
