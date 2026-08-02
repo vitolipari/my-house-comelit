@@ -8,11 +8,9 @@ from pathlib import Path
 import cv2
 
 from liparios.comelit import (
-    ComelitSession
-#    load_comelit_config,
+    ComelitSession,
+    load_comelit_config,
 )
-
-from config import load_comelit_config
 
 
 def parse_arguments() -> argparse.Namespace:

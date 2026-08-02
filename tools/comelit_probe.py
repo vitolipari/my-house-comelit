@@ -1436,10 +1436,10 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("comelit-config.json"),
+        default=Path("config/comelit-config.json"),
         help=(
             "Percorso del file JSON di configurazione "
-            "(default: comelit-config.json)"
+            "(default: config/comelit-config.json)"
         ),
     )
 
@@ -1933,5 +1933,4 @@ def build_ctpp_progress_packet(
 
 if __name__ == "__main__":
     main()
-
 

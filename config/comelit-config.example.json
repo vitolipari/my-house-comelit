@@ -1,0 +1,13 @@
+{
+  "devices": {
+    "main-intercom": {
+      "type": "COMELIT_VIPER",
+      "host": "192.0.2.10",
+      "tcpPort": 64100,
+      "udpPort": 64100,
+      "token": "INSERISCI_QUI_IL_TOKEN",
+      "entranceAddress": "00000000",
+      "enabled": true
+    }
+  }
+}
