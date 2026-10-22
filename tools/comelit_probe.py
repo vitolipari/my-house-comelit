@@ -43,7 +43,7 @@ class ChannelAllocator:
 
         self._next = start
         self._restart_from = restart_from
-        
+
 
     def allocate(self) -> int:
         channel_id = self._next
@@ -118,17 +118,17 @@ def load_config(
             "La radice del file JSON deve essere un oggetto"
         )
 
-    devices = root.get("devices")
+    availableDevices = root.get("availableDevices")
 
-    if not isinstance(devices, dict):
+    if not isinstance(availableDevices, dict):
         raise ValueError(
-            "Nel JSON deve essere presente l'oggetto 'devices'"
+            "Nel JSON deve essere presente l'oggetto 'availableDevices'"
         )
 
-    device = devices.get(device_id)
+    device = availableDevices.get(device_id)
 
     if not isinstance(device, dict):
-        available = ", ".join(sorted(devices.keys())) or "nessuno"
+        available = ", ".join(sorted(availableDevices.keys())) or "nessuno"
 
         raise ValueError(
             f"Dispositivo '{device_id}' non trovato. "
@@ -336,7 +336,7 @@ class ComelitClient:
         self.outgoing_rtpc_channels: list[int] = []
 
         self.ctpp_media_transaction: bytes | None = None
-        
+
 
 
     def advance_media_session(self) -> bytes:
@@ -517,7 +517,7 @@ class ComelitClient:
             )
 
         return list(self.outgoing_rtpc_channels)
-    
+
 
 
     def open_ctpp_channel(
@@ -804,7 +804,7 @@ class ComelitClient:
         )
 
         return channel_id
-    
+
 
 
 
@@ -953,7 +953,7 @@ class ComelitClient:
         print("Configurazione ricevuta correttamente")
 
         return response
-    
+
 
     def open_channel_with_response(
         self,
@@ -988,7 +988,7 @@ class ComelitClient:
         )
 
         return channel_id, response
-    
+
 
     @staticmethod
     def parse_udpm_session_id(
@@ -1017,7 +1017,7 @@ class ComelitClient:
         )
 
         return session_id
-    
+
 
     def open_udp_transport(self) -> None:
         if self.udp_sock is not None:
@@ -1069,7 +1069,7 @@ class ComelitClient:
         print(
             f"Sessione UDP ViPER: "
             f"0x{self.udp_session_id:04x}"
-        )    
+        )
 
 
     def associate_udp_transport(self) -> None:
@@ -1448,7 +1448,7 @@ def parse_arguments() -> argparse.Namespace:
         required=True,
         help=(
             "Identificativo del dispositivo presente "
-            "nell'oggetto devices"
+            "nell'oggetto availableDevices"
         ),
     )
 
@@ -1576,7 +1576,7 @@ def main() -> None:
                     "Negoziazione completata, ma nessun pacchetto "
                     "RTP/H.264 è stato ricevuto"
                 )
-            
+
 
             # print_configuration_summary(
             #     config=config,

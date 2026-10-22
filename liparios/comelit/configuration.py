@@ -82,17 +82,17 @@ def load_comelit_config(
             "La radice del JSON deve essere un oggetto"
         )
 
-    devices = root.get("devices")
+    availableDevices = root.get("availableDevices")
 
-    if not isinstance(devices, dict):
+    if not isinstance(availableDevices, dict):
         raise ValueError(
-            "Nel JSON deve essere presente l'oggetto 'devices'"
+            "Nel JSON deve essere presente l'oggetto 'availableDevices'"
         )
 
-    device = devices.get(device_id)
+    device = availableDevices.get(device_id)
 
     if not isinstance(device, dict):
-        available = ", ".join(sorted(devices.keys())) or "nessuno"
+        available = ", ".join(sorted(availableDevices.keys())) or "nessuno"
 
         raise ValueError(
             f"Dispositivo '{device_id}' non trovato. "
